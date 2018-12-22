@@ -126,6 +126,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.data.large_tcp_window_size=true \
     sys.disable_ext_animation=1
 
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    ro.vendor.qti.sys.fw.bservice_limit=5 \
+    ro.vendor.qti.sys.fw.bservice_age=5000
+
 # OEM Unlock
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=0
