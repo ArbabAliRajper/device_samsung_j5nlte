@@ -154,45 +154,76 @@ static int boostpulse_open()
     return boostpulse_fd;
 }
 
-void power_set_interactive(int on)
+static void set_power_profile(int profile)
 {
-    const char *interactive_path = get_interactive_path();
-    const power_profile *profiles = get_profiles();
-
-    if (!is_profile_valid(current_power_profile)) {
-        ALOGD("%s: no power profile selected yet", __func__);
+    if (!is_profile_valid(profile)) {
+        ALOGE("%s: unknown profile: %d", __func__, profile);
         return;
     }
 
-    // break out early if governor is not interactive
-    if (!check_governor()) return;
+    if (profile == current_power_profile)
+        return;
+
+    ALOGD("%s: setting profile %d", __func__, profile);
+
+    sysfs_write_int(INTERACTIVE_PATH "boost",
+                    profiles[profile].boost);
+    sysfs_write_int(INTERACTIVE_PATH "boostpulse_duration",
+                    profiles[profile].boostpulse_duration);
+    sysfs_write_int(INTERACTIVE_PATH "go_hispeed_load",
+                    profiles[profile].go_hispeed_load);
+    sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
+                    profiles[profile].hispeed_freq);
+    sysfs_write_int(INTERACTIVE_PATH "io_is_busy",
+                    profiles[profile].io_is_busy);
+    sysfs_write_int(INTERACTIVE_PATH "min_sample_time",
+                    profiles[profile].min_sample_time);
+    sysfs_write_int(INTERACTIVE_PATH "sampling_down_factor",
+                    profiles[profile].sampling_down_factor);
+    sysfs_write_str(INTERACTIVE_PATH "target_loads",
+                    profiles[profile].target_loads);
+    sysfs_write_int(CPUFREQ_PATH "scaling_max_freq",
+                    profiles[profile].scaling_max_freq);
+    sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
+                    profiles[profile].scaling_min_freq);
+
+    current_power_profile = profile;
+}
+
+void power_set_interactive(int on)
+{
+    if (!is_profile_valid(current_power_profile)) {
+        ALOGD("%s: no power profile selected yet, setting it to balanced", __func__);
+        set_power_profile(PROFILE_BALANCED);
+    }
 
     if (on) {
-        sysfs_write_int(interactive_path, "hispeed_freq",
+        sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
                         profiles[current_power_profile].hispeed_freq);
-        sysfs_write_int(interactive_path, "go_hispeed_load",
+        sysfs_write_int(INTERACTIVE_PATH "go_hispeed_load",
                         profiles[current_power_profile].go_hispeed_load);
-        sysfs_write_int(interactive_path, "target_loads",
+        sysfs_write_str(INTERACTIVE_PATH "target_loads",
                         profiles[current_power_profile].target_loads);
-        sysfs_write_int(CPUFREQ_PATH, "scaling_min_freq",
+        sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                         profiles[current_power_profile].scaling_min_freq);
     } else {
-        sysfs_write_int(interactive_path, "hispeed_freq",
+        sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
                         profiles[current_power_profile].hispeed_freq_off);
-        sysfs_write_int(interactive_path, "go_hispeed_load",
+        sysfs_write_int(INTERACTIVE_PATH "go_hispeed_load",
                         profiles[current_power_profile].go_hispeed_load_off);
-        sysfs_write_int(interactive_path, "target_loads",
+        sysfs_write_str(INTERACTIVE_PATH "target_loads",
                         profiles[current_power_profile].target_loads_off);
-        sysfs_write_int(CPUFREQ_PATH, "scaling_min_freq",
+        sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                         profiles[current_power_profile].scaling_min_freq_off);
     }
 }
 
-void power_hint(power_hint_t hint)
+void power_hint(power_hint_t hint, void* data)
 {
-    const power_profile *profiles = get_profiles();
-    char buf[80];
-    int len;
+    if (hint == POWER_HINT_SET_PROFILE) {
+        set_power_profile(*(int32_t *)data);
+        return;
+    }
 
     // Skip other hints in powersave mode
     if (current_power_profile == PROFILE_POWER_SAVE)
@@ -201,8 +232,8 @@ void power_hint(power_hint_t hint)
     switch (hint) {
     case POWER_HINT_INTERACTION:
         if (!is_profile_valid(current_power_profile)) {
-            ALOGD("%s: no power profile selected yet", __func__);
-            return;
+            ALOGD("%s: no power profile selected yet, setting it to balanced", __func__);
+            set_power_profile(PROFILE_BALANCED);
         }
 
         if (!profiles[current_power_profile].boostpulse_duration)
