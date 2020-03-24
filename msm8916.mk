@@ -183,6 +183,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fsverity
 
+# Go
+$(call inherit-product, build/target/product/go_defaults.mk)
+
 # GPS Configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/flp.conf \
