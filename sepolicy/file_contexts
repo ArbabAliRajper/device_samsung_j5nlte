@@ -13,3 +13,10 @@
 
 # Service HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.authsecret@1\.0-service u:object_r:hal_authsecret_default_exec:s0
+
+# Lights
+/sys/class/leds(/.*)?                                                   u:object_r:sysfs_leds:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.msm8916    u:object_r:hal_light_default_exec:s0
+
+# Power
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service\.msm8916   u:object_r:hal_power_default_exec:s0
