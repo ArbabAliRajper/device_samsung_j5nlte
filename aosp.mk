@@ -6,8 +6,8 @@ TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_BOOT_ANIMATION_RES := 720
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/revengeos/config/common.mk)
+# Inherit some common PixelExperience stuff.
+$(call inherit-product, vendor/aosp/config/common.mk)
 
 # Include full languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
@@ -19,3 +19,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_CHARACTERISTICS := phone
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
+
+# Gapps
+IS_PHONE := true
+TARGET_MINIMAL_APPS := true
+TARGET_INCLUDE_STOCK_ARCORE := false
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
