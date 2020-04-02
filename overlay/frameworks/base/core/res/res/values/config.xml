@@ -323,4 +323,8 @@
           config to 7. -->
      <integer name="config_deviceHardwareWakeKeys">1</integer>
 
+    <!-- If device supports corner radius on windows.
+         This should be turned off on low-end devices to improve animation performance. -->
+    <bool name="config_supportsRoundedCornersOnWindows">false</bool>
+
 </resources>
