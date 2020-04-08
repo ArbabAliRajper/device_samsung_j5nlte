@@ -33,8 +33,6 @@
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
-static const char PIXEL_FORMAT_YUV420SP_NV21E[] = "yuv420sp-nv21e";
-
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -110,7 +108,7 @@ static int check_vendor_module()
 }
 
 #define KEY_VIDEO_HFR_VALUES "video-hfr-values"
-static char *camera_fixup_getparams(int id, const char *settings)
+static char *camera_fixup_getparams(const char *settings)
 {
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
@@ -192,22 +190,22 @@ static int camera_set_preview_window(struct camera_device *device,
     return VENDOR_CALL(device, set_preview_window, window);
 }
 
-void camera_notify_cb(int32_t msg_type, int32_t ext1, int32_t ext2, void *user) {
+void camera_notify_cb(int32_t msg_type, int32_t ext1, int32_t ext2) {
     gUserNotifyCb(msg_type, ext1, ext2, gUserCameraDevice);
 }
 
 void camera_data_cb(int32_t msg_type, const camera_memory_t *data, unsigned int index,
-        camera_frame_metadata_t *metadata, void *user) {
+        camera_frame_metadata_t *metadata) {
     gUserDataCb(msg_type, data, index, metadata, gUserCameraDevice);
 }
 
 void camera_data_cb_timestamp(nsecs_t timestamp, int32_t msg_type,
-        const camera_memory_t *data, unsigned index, void *user) {
+        const camera_memory_t *data, unsigned index) {
     gUserDataCbTimestamp(timestamp, msg_type, data, index, gUserCameraDevice);
 }
 
 camera_memory_t* camera_get_memory(int fd, size_t buf_size,
-        uint_t num_bufs, void *user) {
+        uint_t num_bufs) {
     return gUserGetMemory(fd, buf_size, num_bufs, gUserCameraDevice);
 }
 
@@ -436,7 +434,7 @@ static char *camera_get_parameters(struct camera_device *device)
     return params;
 }
 
-static void camera_put_parameters(struct camera_device *device, char *params)
+static void camera_put_parameters(char *params)
 {
     if (params)
         free(params);
