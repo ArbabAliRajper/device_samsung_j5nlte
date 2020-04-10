@@ -1,3 +1,3 @@
 # kgsl file type for sysfs access
-type sysfs_kgsl_gpuclk, sysfs_type, fs_type;
+# type sysfs_kgsl_gpuclk, sysfs_type, fs_type;
 
