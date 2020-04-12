@@ -2,3 +2,17 @@ allow priv_app device:dir { read open write };
 allow priv_app proc_interrupts:file { read open write };
 allow priv_app sysfs:file { read open write };
 allow priv_app sysfs_android_usb:file { read open write };
+allow priv_app init_exec:lnk_file { getattr setattr read write open };
+allow priv_app nonplat_service_contexts_file:file { getattr setattr read write open };
+allow priv_app persist_file:dir r_dir_perms;
+allow priv_app efs_file:dir r_dir_perms;
+allow priv_app sepolicy_file:file { getattr setattr read write open };
+allow priv_app adb_data_file:dir r_dir_perms;
+allow priv_app cache_private_backup_file:dir r_dir_perms;
+allow priv_app cgroup:dir r_dir_perms;
+allow priv_app configfs:dir r_dir_perms;
+allow priv_app system_app_data_file:dir r_dir_perms;
+allow priv_app radio_data_file:dir r_dir_perms;
+allow priv_app nfc_data_file:dir r_dir_perms;
+allow priv_app bluetooth_data_file:dir r_dir_perms;
+
