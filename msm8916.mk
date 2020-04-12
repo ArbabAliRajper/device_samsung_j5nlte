@@ -155,8 +155,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     libtinyxml \
     libtinyxml2 \
-    memtrack.msm8916 \
-    vendor.lineage.livedisplay@2.0-service.samsung-qcom
+    memtrack.msm8916
 
 # Doze
 PRODUCT_PACKAGES += \
