@@ -27,3 +27,12 @@ TARGET_MINIMAL_APPS := true
 TARGET_INCLUDE_STOCK_ARCORE := false
 TARGET_SUPPORTS_GOOGLE_RECORDER := false
 TARGET_GAPPS_ARCH := arm
+
+# Fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="j5nltexx-user 10 MMB29M J500FXXU1BSK2 release-keys"
+
+BUILD_FINGERPRINT := google/coral/coral:10/QQ1B.200105.004/6031802:user/release-keys
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.fingerprint=google/coral/coral:10/QQ1B.200105.004/6031802:user/release-keys
