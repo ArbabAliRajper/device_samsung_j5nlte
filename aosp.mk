@@ -37,3 +37,7 @@ BUILD_FINGERPRINT := google/flame/flame:10/QQ2A.200405.005/6254899:user/release-
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/flame/flame:10/QQ2A.200405.005/6254899:user/release-keys
+
+# wifi-ext removal
+TARGET_INCLUDE_WIFI_EXT := false
+$(shell rm -rf vendor/google/customization/interfaces/wifi_ext)
