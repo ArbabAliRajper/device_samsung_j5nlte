@@ -21,6 +21,15 @@ PRODUCT_MANUFACTURER := samsung
 PRODUCT_CHARACTERISTICS := phone
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
+# Fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="j5nltexx-user 10 MMB29M J500FXXU1BSK2 release-keys"
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.fingerprint=google/flame/flame:10/QQ2A.200405.005/6254899:user/release-keys
+
+BUILD_FINGERPRINT := google/flame/flame:10/QQ2A.200405.005/6254899:user/release-keys
+
 # Gapps
 IS_PHONE := true
 TARGET_MINIMAL_APPS := true
@@ -28,15 +37,6 @@ TARGET_INCLUDE_STOCK_ARCORE := false
 TARGET_SUPPORTS_GOOGLE_RECORDER := false
 TARGET_GAPPS_ARCH := arm
 TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK := true
-
-# Fingerprint
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="j5nltexx-user 10 MMB29M J500FXXU1BSK2 release-keys"
-
-BUILD_FINGERPRINT := google/flame/flame:10/QQ2A.200405.005/6254899:user/release-keys
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/flame/flame:10/QQ2A.200405.005/6254899:user/release-keys
 
 # wifi-ext removal
 TARGET_INCLUDE_WIFI_EXT := false
