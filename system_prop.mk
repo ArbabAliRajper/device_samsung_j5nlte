@@ -69,6 +69,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=false \
     ro.use_data_netmgrd=false
 
+# Factory reset protection
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.frp.pst=/dev/block/bootdevice/by-name/config
+
 # FM
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.fm.transmitter=false
