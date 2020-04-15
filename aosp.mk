@@ -39,5 +39,4 @@ TARGET_GAPPS_ARCH := arm
 TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK := true
 
 # wifi-ext removal
-TARGET_INCLUDE_WIFI_EXT := false
-$(shell rm -rf vendor/google/customization/interfaces/wifi_ext)
+$(call inherit-product, $(LOCAL_PATH)/configs/wifi/wifi_ext.mk)
