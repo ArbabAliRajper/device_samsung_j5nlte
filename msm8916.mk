@@ -370,6 +370,10 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     sensors.msm8916
 
+# SetupWizardPrebuilt
+PRODUCT_PACKAGES += \
+    SetupWizardPrebuilt-new
+
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
