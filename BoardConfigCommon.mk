@@ -232,6 +232,8 @@ include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(COMMON_PATH)/sepolicy
 
+BOARD_SEPOLICY_VERS := 29.0
+
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /system/lib/libmmjpeg_interface.so|libboringssl-compat.so \
