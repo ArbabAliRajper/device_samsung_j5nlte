@@ -15,6 +15,9 @@
 /dev/stune(/.*)? u:object_r:cgroup:s0
 /dev/alarm u:object_r:alarm_device:s0
 
+# Authsecret
+/(vendor|system/vendor)/bin/hw/android\.hardware\.authsecret@1\.0-service u:object_r:hal_authsecret_default_exec:s0
+
 # Lights
 /sys/class/leds(/.*)?                                                   u:object_r:sysfs_leds:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.msm8916    u:object_r:hal_light_default_exec:s0
@@ -22,3 +25,5 @@
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.1-service\.msm8916   u:object_r:hal_power_default_exec:s0
 
+# Widevine
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service.widevine   u:object_r:hal_drm_widevine_exec:s0
