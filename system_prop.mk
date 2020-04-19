@@ -153,10 +153,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.sib16_support=1
 
-# RAM
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=false
-
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_long_ons_0="" \
