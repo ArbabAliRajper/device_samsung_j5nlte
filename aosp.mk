@@ -53,4 +53,4 @@ TARGET_SUPPORTS_GOOGLE_RECORDER := false
 TARGET_GAPPS_ARCH := arm
 
 # wifi-ext removal
-$(call inherit-product, $(LOCAL_PATH)/configs/wifi/wifi_ext.mk)
+$(call inherit-product, $(LOCAL_PATH)/wifi/wifi_ext.mk)
