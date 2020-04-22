@@ -51,7 +51,7 @@ public class TouchscreenGestureSettings extends PreferenceFragment {
     public void onResume() {
         super.onResume();
 
-        // We arealways running on a phone (J5), so remove padding around the listview
+        // We are always running on a phone (J5), so remove padding around the listview
         getListView().setPadding(0, 0, 0, 0);
     }
 
