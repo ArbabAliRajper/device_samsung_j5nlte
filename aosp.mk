@@ -51,7 +51,6 @@ TARGET_MINIMAL_APPS := true
 TARGET_INCLUDE_STOCK_ARCORE := false
 TARGET_SUPPORTS_GOOGLE_RECORDER := false
 TARGET_GAPPS_ARCH := arm
-TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK := true
 
 # wifi-ext removal
 $(call inherit-product, $(LOCAL_PATH)/configs/wifi/wifi_ext.mk)
