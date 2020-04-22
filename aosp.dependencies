@@ -1,0 +1,32 @@
+[
+  {
+    "repository": "Resurrection3387/hardware_samsung",
+    "target_path": "hardware/samsung",
+    "remote": "github",
+    "branch": "ten"
+  },
+  {
+    "repository": "LineageOS/external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat",
+    "remote": "github",
+    "branch": "ten"
+  },
+  {
+    "repository": "Resurrection3387/kernel_samsung_msm8916",
+    "target_path": "kernel/samsung/msm8916",
+    "remote": "github",
+    "branch": "ten"
+  },
+  {
+    "repository": "Resurrection3387/vendor_samsung",
+    "target_path": "vendor/samsung",
+    "remote": "github",
+    "branch": "ten"
+  },
+  {
+    "repository": "Resurrection3387/device_samsung_msm8916-common",
+    "target_path": "device/samsung/msm8916-common",
+    "remote": "github",
+    "branch": "ten"
+  }
+]
