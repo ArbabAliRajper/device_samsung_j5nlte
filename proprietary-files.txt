@@ -173,6 +173,9 @@ vendor/lib/libfastcvopt.so
 vendor/lib/libscve_mv.so
 vendor/lib/libscve.so
 
+# NFC (From https://github.com/NXPNFCProject/NXPNFCC_FW/blob/master/pn548ad/32-bit/libpn548ad_fw.so)
+vendor/firmware/libpn548ad_fw.so|88a35cebace27c3a93439972660f034b
+
 # Perf
 vendor/bin/perfd:bin/perfd
 vendor/lib/libqti-at.so
@@ -211,6 +214,8 @@ vendor/lib/libxml.so
 
 # RIL
 lib/libaudio-ril.so
+lib/libsec-ril.so|9186d9bf37eb377db28cb17b4572071070a898c2
+lib/libsec-ril-dsds.so|a261897ac6b6679443d5821b4e250c61a8568413
 lib/libsecril-client.so
 vendor/lib/libril-qcril-hook-oem.so
 
@@ -221,6 +226,9 @@ lib/libseckeyprov.so
 # Security
 bin/irsc_util
 lib/libgdmcprov.so
+
+# Sensors - J500HXXU1APE5_J500HOXE1APE5_J500HXXU1APC2
+lib/hw/sensors.msm8916.so:lib/hw/sensors.vendor.msm8916.so|fb5fbe6b832c242e18ab0a5cb53ad91c
 
 # STLport
 vendor/lib/libstlport.so|76fbc529632aae39370a7f28a1d839cd
