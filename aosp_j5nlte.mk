@@ -30,11 +30,26 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Inherit from vendor
+$(call inherit-product-if-exists, vendor/samsung/j5nlte/j5nlte-vendor.mk)
+
+# Inherit NFC support
+$(call inherit-product, device/samsung/msm8916-common/nfc.mk)
+
+# Inherit from common
+$(call inherit-product, device/samsung/msm8916-common/msm8916.mk)
+
+$(call inherit-product, device/samsung/msm8916-common/aosp.mk)
+
+$(call inherit-product, device/samsung/j5nlte/device.mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_CHARACTERISTICS := phone
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
+PRODUCT_DEVICE := j5nlte
+PRODUCT_NAME := aosp_j5nlte
+PRODUCT_MODEL := SM-J500FN
 
 # Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
