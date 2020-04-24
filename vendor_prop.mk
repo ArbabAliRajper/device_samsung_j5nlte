@@ -116,6 +116,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=true \
     mmp.enable.3g2=true
 
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    ro.vendor.qti.sys.fw.bservice_limit=5 \
+    ro.vendor.qti.sys.fw.bservice_age=5000
+
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.logs=0 \
@@ -125,12 +131,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.storage_preload=1 \
     ro.data.large_tcp_window_size=true \
     sys.disable_ext_animation=1
-
-# Memory optimizations
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true \
-    ro.vendor.qti.sys.fw.bservice_limit=5 \
-    ro.vendor.qti.sys.fw.bservice_age=5000
 
 # OEM Unlock
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -151,8 +151,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.radio.apm_sim_not_pwdn=1 \
-	persist.radio.add_power_save=1
+    persist.radio.apm_sim_not_pwdn=1 \
+    persist.radio.add_power_save=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.add_power_save=1 \
@@ -184,7 +184,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Screen
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=320
+    ro.sf.lcd_density=320
 
 # Time services
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -196,6 +196,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Volume
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.config.vc_call_vol_steps=15 \
-	ro.config.media_vol_steps=30
-
+    ro.config.vc_call_vol_steps=15 \
+    ro.config.media_vol_steps=30
