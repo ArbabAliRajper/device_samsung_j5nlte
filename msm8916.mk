@@ -313,7 +313,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service.msm8916
 
 # Proprieties
-include device/samsung/msm8916-common/vendor_prop.mk
+include device/samsung/j5nlte/vendor_prop.mk
 
 # Radio
 PRODUCT_PACKAGES += \

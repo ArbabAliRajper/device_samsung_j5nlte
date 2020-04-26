@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_PATH := device/samsung/msm8916-common
+COMMON_PATH := device/samsung/j5nlte
 
 # NFC - only for j5nlte and j5xnlte
 PRODUCT_PACKAGES += \

@@ -22,11 +22,5 @@
     "target_path": "vendor/samsung",
     "remote": "github",
     "branch": "ten"
-  },
-  {
-    "repository": "Resurrection3387/device_samsung_msm8916-common",
-    "target_path": "device/samsung/msm8916-common",
-    "remote": "github",
-    "branch": "ten"
   }
 ]

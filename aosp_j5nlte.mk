@@ -34,14 +34,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product-if-exists, vendor/samsung/j5nlte/j5nlte-vendor.mk)
 
 # Inherit NFC support
-$(call inherit-product, device/samsung/msm8916-common/nfc.mk)
+$(call inherit-product, device/samsung/j5nlte/nfc.mk)
 
 # Inherit from common
-$(call inherit-product, device/samsung/msm8916-common/msm8916.mk)
+$(call inherit-product, device/samsung/j5nlte/msm8916.mk)
 
-$(call inherit-product, device/samsung/msm8916-common/aosp.mk)
-
-$(call inherit-product, device/samsung/j5nlte/device.mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung

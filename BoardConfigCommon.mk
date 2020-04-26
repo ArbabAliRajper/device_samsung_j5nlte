@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_PATH := device/samsung/msm8916-common
+COMMON_PATH := device/samsung/j5nlte
 BOARD_VENDOR := samsung
 
 # Inherit from common
@@ -199,7 +199,7 @@ HAVE_SYNAPTICS_I2C_RMI4_FW_UPGRADE := true
 TARGET_USES_NEW_ION_API := true
 
 # Recovery
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/msm8916-common/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/j5nlte/recovery/recovery_keys.c
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
@@ -210,7 +210,7 @@ BOARD_USES_MMCUTILS := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA	:= true
 TARGET_RECOVERY_DENSITY	:= hdpi
-TARGET_RECOVERY_FSTAB := device/samsung/msm8916-common/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/samsung/j5nlte/recovery/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 TARGET_RECOVERY_QCOM_RTC_FIX	:= true
 

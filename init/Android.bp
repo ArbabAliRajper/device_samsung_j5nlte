@@ -7,7 +7,7 @@ cc_library_static {
         "system/core/init",
         "system/core/include/android",
         "external/selinux/libselinux/include",
-        "device/samsung/msm8916-common/include/"
+        "device/samsung/j5nlte/include/"
     ],
 
     cflags: [
