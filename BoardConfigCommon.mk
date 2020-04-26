@@ -16,9 +16,6 @@
 COMMON_PATH := device/samsung/j5nlte
 BOARD_VENDOR := samsung
 
-# Inherit from common
--include device/samsung/qcom-common/BoardConfigCommon.mk
-
 # Includes
 TARGET_SPECIFIC_HEADER_PATH += $(COMMON_PATH)/include
 
