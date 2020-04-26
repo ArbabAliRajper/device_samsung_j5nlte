@@ -16,11 +16,11 @@
 COMMON_PATH := device/samsung/j5nlte
 BOARD_VENDOR := samsung
 
-# Includes
-TARGET_SPECIFIC_HEADER_PATH += $(COMMON_PATH)/include
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_PHONY_TARGETS := true
+# APEX image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Architecture/platform
 TARGET_ARCH := arm
@@ -31,40 +31,6 @@ TARGET_CPU_VARIANT := cortex-a53
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := j5nlte,j5nltexx
-
-# Platform
-TARGET_BOARD_PLATFORM := msm8916
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8916
-TARGET_NO_BOOTLOADER := true
-
-# Security patch level
-VENDOR_SECURITY_PATCH := 2017-09-01
-
-# Kernel
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23
-BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x3F ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
-BOARD_DTBTOOL_ARGS := -2
-BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_IMAGE_NAME := zImage
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_SEPARATED_DT := true
-BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
-BOARD_RAMDISK_OFFSET := 0x02000000
-LZMA_RAMDISK_TARGETS := recovery
-TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
-TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
-TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_j5nlte_eur_defconfig
-
-# ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -82,6 +48,14 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 BLUETOOTH_HCI_USE_MCT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8916
+TARGET_NO_BOOTLOADER := true
+
+# Build flags
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PHONY_TARGETS := true
 
 # Camera
 BOARD_GLOBAL_CFLAGS += -DMETADATA_CAMERA_SOURCE
@@ -141,9 +115,41 @@ AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 # GPS
 TARGET_NO_RPC := true
 
+# HIDL
+DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
+
+# Includes
+TARGET_SPECIFIC_HEADER_PATH += $(COMMON_PATH)/include
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8916
 TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
+
+# Kernel
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x3F ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
+BOARD_DTBTOOL_ARGS := -2
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_IMAGE_NAME := zImage
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
+BOARD_RAMDISK_OFFSET := 0x02000000
+LZMA_RAMDISK_TARGETS := recovery
+TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
+TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
+TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_j5nlte_eur_defconfig
+
+# Legacy BLOB Support
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /system/bin/mediaserver=22 \
+    /system/vendor/bin/mm-qcamera-daemon=22 \
+    /system/vendor/bin/hw/rild=27
 
 # Malloc implementation
 MALLOC_SVELTE := true
@@ -157,18 +163,10 @@ TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE := true
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8916
 
-# HIDL
-DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
-
-# APEX image
-DEXPREOPT_GENERATE_APEX_IMAGE := true
-
-# Legacy BLOB Support
-TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
-    /system/bin/mediaserver=22 \
-    /system/vendor/bin/mm-qcamera-daemon=22 \
-    /system/vendor/bin/hw/rild=27
+# Platform
+TARGET_BOARD_PLATFORM := msm8916
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Power
 TARGET_HAS_LEGACY_POWER_STATS := true
@@ -176,8 +174,14 @@ TARGET_HAS_NO_POWER_STATS := true
 TARGET_HAS_NO_WIFI_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
+# Protobuf
+PROTOBUF_SUPPORTED := true
+
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_QCOM_BSP := true
+HAVE_SYNAPTICS_I2C_RMI4_FW_UPGRADE := true
+TARGET_USES_NEW_ION_API := true
 
 # Radio
 TARGET_USES_OLD_MNC_FORMAT := true
@@ -186,14 +190,6 @@ TARGET_USES_OLD_MNC_FORMAT := true
 BOARD_MODEM_TYPE := xmm7260
 BOARD_PROVIDES_LIBRIL := true
 BOARD_GLOBAL_CFLAGS += -DRIL_FIX_SMS_NOT_SENT_ERR
-
-# Protobuf
-PROTOBUF_SUPPORTED := true
-
-# Qualcomm support
-TARGET_USES_QCOM_BSP := true
-HAVE_SYNAPTICS_I2C_RMI4_FW_UPGRADE := true
-TARGET_USES_NEW_ION_API := true
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/j5nlte/recovery/recovery_keys.c
@@ -231,6 +227,9 @@ ifeq ($(RECOVERY_VARIANT),twrp)
 	BOARD_GLOBAL_CFLAGS += -DTW_USE_MINUI_CUSTOM_FONTS
 endif
 
+# Security patch level
+VENDOR_SECURITY_PATCH := 2017-09-01
+
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 
@@ -259,7 +258,7 @@ BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 BOARD_VOLD_MAX_PARTITIONS := 67
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# Wifi
+# Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
 BOARD_HOSTAPD_DRIVER := NL80211

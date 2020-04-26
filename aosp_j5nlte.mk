@@ -24,13 +24,13 @@ TARGET_BOOT_ANIMATION_RES := 720
 # Inherit some common PixelExperience stuff.
 $(call inherit-product, vendor/aosp/config/common.mk)
 
-# Include full languages
+# Inherit full languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from common
+# Inherit from device.mk
 $(call inherit-product, device/samsung/j5nlte/device.mk)
 
 # Device identifier. This must come after all inclusions
