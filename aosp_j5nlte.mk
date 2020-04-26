@@ -30,9 +30,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from vendor
-$(call inherit-product-if-exists, vendor/samsung/j5nlte/j5nlte-vendor.mk)
-
 # Inherit NFC support
 $(call inherit-product, device/samsung/j5nlte/nfc.mk)
 

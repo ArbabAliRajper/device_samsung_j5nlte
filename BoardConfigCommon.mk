@@ -275,5 +275,3 @@ WLAN_CHIPSET := pronto
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 BOARD_HAVE_SAMSUNG_WIFI := true
-
--include vendor/samsung/msm8916-common/BoardConfigVendor.mk

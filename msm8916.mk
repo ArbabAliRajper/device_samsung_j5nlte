@@ -13,9 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit from vendor
-$(call inherit-product, vendor/samsung/j5-common/j5-common-vendor.mk)
-
 # APEX
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
@@ -407,5 +404,7 @@ PRODUCT_PACKAGES += \
     wificond \
     wpa_supplicant
 
-# Include vendor
+# Inherit from vendor
+$(call inherit-product, vendor/samsung/j5nlte/j5nlte-vendor.mk)
+$(call inherit-product, vendor/samsung/j5-common/j5-common-vendor.mk)
 $(call inherit-product, vendor/samsung/msm8916-common/msm8916-common-vendor.mk)
