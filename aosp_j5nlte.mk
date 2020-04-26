@@ -34,7 +34,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/samsung/j5nlte/nfc.mk)
 
 # Inherit from common
-$(call inherit-product, device/samsung/j5nlte/msm8916.mk)
+$(call inherit-product, device/samsung/j5nlte/device.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := samsung
