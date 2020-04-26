@@ -19,7 +19,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.authsecret@1\.0-service            u:object_r:hal_authsecret_default_exec:s0
 
 # Battery
-/sys/devices/battery\.[0-9]+/power_supply(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/battery\.[0-9]+/power_supply(/.*)?                                      u:object_r:sysfs_batteryinfo:s0
 
 # Lights
 /sys/class/leds(/.*)?                                                                u:object_r:sysfs_leds:s0
