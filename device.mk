@@ -392,7 +392,7 @@ PRODUCT_PACKAGES += \
 
 # SetupWizardPrebuilt
 PRODUCT_PACKAGES += \
-    SetupWizardPrebuilt-new
+    SetupWizardPrebuilt-arm
 
 # USB HAL
 PRODUCT_PACKAGES += \

@@ -17,7 +17,7 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := SetupWizardPrebuilt-new
+LOCAL_MODULE := SetupWizardPrebuilt-arm
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := prebuilt/SetupWizardPrebuilt.apk
 LOCAL_CERTIFICATE := PRESIGNED
