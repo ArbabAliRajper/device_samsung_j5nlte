@@ -80,33 +80,12 @@ int read_integer(const char* filename)
 	return retval;
 }
 
-void set_cdma_properties(const char *operator_alpha, const char *operator_numeric, const char * network)
-{
-	// Dynamic CDMA Properties
-	android::init::property_set("ro.cdma.home.operator.alpha", operator_alpha);
-	android::init::property_set("ro.cdma.home.operator.numeric", operator_numeric);
-	android::init::property_set("ro.telephony.default_network", network);
-
-	// Static CDMA Properties
-	android::init::property_set("ril.subscription.types", "NV,RUIM");
-	android::init::property_set("ro.telephony.default_cdma_sub", "0");
-	android::init::property_set("ro.telephony.get_imsi_from_sim", "true");
-	android::init::property_set("ro.telephony.ril.config", "newDriverCallU,newDialCode");
-	android::init::property_set("telephony.lteOnCdmaDevice", "1");
-}
-
 void set_dsds_properties()
 {
 	android::init::property_set("ro.multisim.simslotcount", "2");
 	android::init::property_set("ro.telephony.ril.config", "simactivation");
 	android::init::property_set("persist.radio.multisim.config", "dsds");
 	android::init::property_set("rild.libpath2", "/system/lib/libsec-ril-dsds.so");
-}
-
-void set_gsm_properties()
-{
-	android::init::property_set("telephony.lteOnCdmaDevice", "0");
-	android::init::property_set("ro.telephony.default_network", "9");
 }
 
 void set_lte_properties()
@@ -170,31 +149,6 @@ void init_target_properties(void)
 	else if (bootloader.find("J500F") == 0) {
 		device = (char *)"j5ltexx";
 		model = (char *)"SM-J500F";
-		set_lte_properties();
-	}
-	else if (bootloader.find("J500H") == 0) {
-		device = (char *)"j53gxx";
-		model = (char *)"SM-J500H";
-		set_gsm_properties();
-	}
-	else if (bootloader.find("J500M") == 0) {
-		device = (char *)"j5lteub";
-		model = (char *)"SM-J500M";
-		set_lte_properties();
-	}
-	else if (bootloader.find("J500Y") == 0) {
-		device = (char *)"j5ylte";
-		model = (char *)"SM-J500Y";
-		set_lte_properties();
-	}
-	else if (bootloader.find("J500G") == 0) {
-		device = (char *)"j5ltedx";
-		model = (char *)"SM-J500G";
-		set_lte_properties();
-	}
-	else if (bootloader.find("J5008") == 0) {
-		device = (char *)"j5ltechn";
-		model = (char *)"SM-J5008";
 		set_lte_properties();
 	}
 	else {
