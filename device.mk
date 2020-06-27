@@ -313,7 +313,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service.msm8916
 
 # Properties
-include device/samsung/j5nlte/vendor_prop.mk
+include device/samsung/j5xnlte/vendor_prop.mk
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -405,6 +405,6 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_SYSTEM)/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # Inherit from vendor
-$(call inherit-product, vendor/samsung/j5nlte/j5nlte-vendor.mk)
-$(call inherit-product, vendor/samsung/j5-common/j5-common-vendor.mk)
+$(call inherit-product, vendor/samsung/j5xnlte/j5xnlte-vendor.mk)
+$(call inherit-product, vendor/samsung/j5x-common/j5x-common-vendor.mk)
 $(call inherit-product, vendor/samsung/msm8916-common/msm8916-common-vendor.mk)
