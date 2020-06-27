@@ -1,9 +1,9 @@
-LOCAL_PATH := device/samsung/j5nlte
+LOCAL_PATH := device/samsung/j5xnlte
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_j5nlte.mk
+    $(LOCAL_DIR)/aosp_j5xnlte.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_j5nlte-eng \
-    aosp_j5nlte-userdebug \
-    aosp_j5nlte-user
+    aosp_j5xnlte-eng \
+    aosp_j5xnlte-userdebug \
+    aosp_j5xnle-user
