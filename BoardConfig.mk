@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_PATH := device/samsung/j5nlte
+COMMON_PATH := device/samsung/j5xnlte
 BOARD_VENDOR := samsung
 
 # ANT+
@@ -30,7 +30,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := j5nlte,j5nltexx
+TARGET_OTA_ASSERT_DEVICE := j5xnlte,j5xnltexx
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -139,7 +139,7 @@ LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
-TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_j5nlte_eur_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_j5xnlte_eur_defconfig
 
 # Legacy BLOB Support
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
@@ -188,7 +188,7 @@ BOARD_PROVIDES_LIBRIL := true
 BOARD_GLOBAL_CFLAGS += -DRIL_FIX_SMS_NOT_SENT_ERR
 
 # Recovery
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/j5nlte/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/j5xnlte/recovery/recovery_keys.c
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
